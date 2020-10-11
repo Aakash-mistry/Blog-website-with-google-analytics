@@ -1,0 +1,118 @@
+<div class="row">
+     <div data-aos="fade-up">
+          <div class="col s12 l8">
+               <div style="margin-top: 50px;">
+                    {{#if latestBlog}}
+                         <div class="center heading-2">
+                              My latest technical post
+                         </div>
+                         <div class="row z-depth-1" style="padding: 10px;">
+                              {{#each latestBlog}}
+                                   <div class="col s12 l6">
+                                        <img src="{{this.postImage}}" class='responsive-img' alt="">
+                                   </div>
+                                   <div class="col s12 l6">
+                                        <div class="heading truncate" style="margin-top: 20px;">
+                                             <a href="/blog/{{this._id}}">
+                                                  {{this.postTitle}}
+                                             </a>
+                                        </div>
+                                             <p class="grey-text">
+                                                  {{this.shortDescription}}
+                                             </p>
+                                        <div style="text-transform: capitalize;">
+                                             Blog category - {{this.category.title}}
+                                        </div>
+                                        <div class="right" style="margin-top: 50px;">
+                                             <a href="/blog/{{this._id     }}" class="btn black">
+                                                  <i class="material-icons">arrow_forward</i>
+                                             </a>
+                                        </div>
+                                   </div>
+                              {{/each}}
+                         </div>
+                    {{/if}}
+               </div>
+          </div>
+     </div>
+</div>
+
+<div class="container">
+     <div class="row" style="margin-top: 100px; margin-bottom: 100px;">
+     <div data-aos="fade-up">
+          <div class="col s12 l6">
+               <div class="numberShowcase  z-depth-1">
+                    <div class="numberShowcaseText">
+                         {{PostLength}} <div>
+                              technical topics to explore
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div data-aos="fade-up">
+          <div class="col s12 l6">
+               <div class="numberShowcase-2  z-depth-1">
+                    <div class="numberShowcaseText-2">
+                         {{categoryLength}} <div>
+                              categories to relate
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+</div>
+
+{{#if PostLength}}
+<div class="row grey lighten-2" style="margin-top: 50px; padding-top: 20px; padding-bottom: 50px!important">
+     <div data-aos="fade-up">
+          <div style="margin-top: 50px;" class="heading">
+               Top stories
+          </div>
+     </div>
+     <div data-aos="fade-up">
+          {{#each allPost}}
+          <div class="col s12 l3" style="margin-top: 50px;">
+               <div class="white post hoverable">
+                    <a href="/blog/{{this._id}}" class="waves-effect waves-light">
+                    <img src="{{this.postImage}}" class="responsive-img  waves-effect waves-light" alt="">
+                    </a>
+                    <div class="blog-title truncate" style="margin-top: 10px;">
+                         <a href="/blog/{{this._id}}">
+                              {{this.postTitle}}
+                         </a>
+                    </div>
+                    <div class="short-title" style="margin-top: 10px;">
+                         {{this.shortDescription}}
+                    </div>
+                    <div style="text-transform: capitalize; margin-top: 10px;">
+                         Blog category - {{this.category.title}}
+                    </div>
+                    <div style="margin-top: 20px; text-align: right;">
+                         <a href="/blog/{{this._id}}" class="btn black">
+                              Read more...
+                         </a>
+                    </div>
+               </div>
+          </div>
+          {{/each}}
+     </div>
+</div>
+{{/if}}
+
+{{!-- Subscriber area --}}
+<div data-aos="fade-up">
+     <div class="light-blue lighten-3" style="padding: 20px;">
+          <h3 class="center white-text">
+               Want to contact me!
+          </h3>
+
+     </div>
+</div>
+{{!-- Subscriber area ends --}}
+
+
+
+<a id="back2Top" title="Back to top" href="#"><i class="material-icons" style="font-size: 30px;">keyboard_arrow_up</i></a>
