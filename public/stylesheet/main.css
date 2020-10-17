@@ -88,10 +88,6 @@ tbody tr td {
     text-transform: capitalize;
 }
 
-tbody tr td:hover {
-    border: 1px solid gray;
-}
-
 .blog-title {
     font-size: 18px;
     font-weight: 700;

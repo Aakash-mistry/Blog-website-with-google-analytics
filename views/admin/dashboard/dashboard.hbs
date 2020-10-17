@@ -1,18 +1,35 @@
 <div class="dashboard">
-     Welcome <span class="blue-text">
+     Welcome here <span class="blue-text">
           {{user.name}}
      </span>
-</div>
-
-<div class="heading-2">
-     Blog section
 </div>
 
 <div class="row">
      <div class="col s12 l6">
           <div class="card dashboard-card">
-               <div class="heading-2 center">
-                    New subscribers
+               <div class="heading-2 center container">
+                    <i class="material-icons center-align">messages</i> New Messages
+               </div>
+               <div style="margin-top: 50px;">
+                    {{#if messagesLength}}
+                    <ul class="collection">
+                         {{#each messages}}
+                         <li class="collection-item avatar">
+                              <span class="title">{{this.email}}</span>
+                              <p>{{this.contact}}<br>
+                              {{this.message}}
+                              </p>
+                         </li>
+                         {{/each}}
+                    </ul>
+                      {{else}}
+                    <div class="heading">
+                         No messages was recevied till now!!!
+                    </div>
+                    {{/if}}
+                    <div class="center" style="margin-top: 33px;">
+                         <a href="/admin/new-messages">View all</a>
+                    </div>
                </div>
           </div>
      </div>

@@ -1,6 +1,7 @@
 const passport = require('passport')
 const Category = require('../models/category')
 const Blog = require('../models/post')
+const Contact = require('../models/contact')
 
 exports.loginForm = async(req, res) => {
     const messages = req.flash('error')
@@ -16,11 +17,14 @@ exports.loginForm = async(req, res) => {
 exports.dashboard = async(req, res) => {
     const category = await Category.find()
     const blog = await Blog.find()
+    const messages = await Contact.find().sort({ createdAt: -1 }).limit(5)
     res.render('admin/dashboard/dashboard', {
         title: 'sachinetechtalks | dashboard',
         user: req.user,
         categoryLength: category.length,
-        blogLength: blog.length
+        blogLength: blog.length,
+        messagesLength: messages.length,
+        messages
     })
 }
 
@@ -70,4 +74,24 @@ exports.viewAccountDetails = (req, res) => {
     } else {
         res.redirect('/')
     }
+}
+
+exports.getAllMessages = async(req, res) => {
+    const messages = await Contact.find().sort({ createdAt: -1 })
+    res.render('admin/dashboard/contact', {
+        title: 'sachintechtalks | new messages',
+        messagesLength: messages.length,
+        messages: messages
+    })
+}
+
+exports.deleteOneMessage = async(req, res) => {
+    await Contact.findOneAndDelete({ _id: req.params.id }, (err, data) => {
+        if (err) {
+            res.json(err)
+        } else {
+            console.log(data)
+            res.redirect('/admin/new-messages')
+        }
+    })
 }

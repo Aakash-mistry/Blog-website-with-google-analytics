@@ -1,0 +1,58 @@
+<div class="container">
+
+     {{#if messagesLength}}
+          <div class="heading" style=" margin-bottom: 50px; margin-top: 50px;">
+               You got total {{messagesLength}} messages
+          </div>
+          <table style="margin-bottom: 50px; border: 1px solid black" class="hightligt stripped centered">
+               <thead>
+                    <tr>
+                         <th class="grey black-text">ID</th>
+                         <th class="grey black-text">MESSAGES</th>
+                         <th class="grey black-text">EMAIL</th>
+                         <th class="grey black-text">CONTACT</th>
+                         <th class="grey black-text">ACTION</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    {{#each messages}}
+                         <tr>
+                              <td>{{this._id}}</td>
+                              <td>
+                                   {{#if this.message}}
+                                        {{this.message}}
+                                        {{else}}
+                                             <span class="grey-text">
+                                                  none
+                                             </span>
+                                   {{/if}}
+                              </td>
+                              <td>{{this.email}}</td>
+                              <td>
+                                        {{#if this.contact}}
+                                        {{this.contact}}
+                                        {{else}}
+                                             <span class="grey-text">
+                                                  none
+                                             </span>
+                                   {{/if}}
+                              </td>
+                              <td>
+                                   <form action="/admin/delete-messages/{{this._id}}" method="POST">
+                                        <button type="submit" class="btn red">
+                                             <i class="material-icons">delete</i>
+                                        </button>
+                                   </form>
+                              </td>
+                         </tr>
+                    {{/each}}
+               </tbody>
+          {{else}}
+               <tbody>
+                    <div class="heading" style="margin-bottom: 50px; margin-top: 50px;">
+                         No messages was received till now!!!
+                    </div>
+               </tbody>
+          </table>
+     {{/if}}
+</div>

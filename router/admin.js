@@ -1,4 +1,4 @@
-const { loginForm, passportLogin, dashboard, logout, isLoggedIn, notLoggedIn, viewBlogsToAdmin, viewAccountDetails } = require('../controllers/adminController')
+const { loginForm, passportLogin, dashboard, logout, isLoggedIn, notLoggedIn, viewBlogsToAdmin, viewAccountDetails, getAllMessages, deleteOneMessage } = require('../controllers/adminController')
 const { createCategoryForm, createCategory, viewAllCategory, editCategoryForm, editCategory, deleteCategory } = require('../controllers/categoryController')
 const { createPostForm, createNewBlog, deleteOneBlog } = require('../controllers/postController')
 const router = require('express').Router()
@@ -16,6 +16,10 @@ router.get('/edit-category/:id', isLoggedIn, editCategoryForm)
 
 // BLOGS
 router.get('/create-blog', isLoggedIn, createPostForm)
+
+// MESSAGES
+router.get('/new-messages', isLoggedIn, getAllMessages)
+router.post('/delete-messages/:id', isLoggedIn, deleteOneMessage)
 
 // ADMIN ACCOUNT
 router.get('/account-settings', isLoggedIn, viewAccountDetails)
