@@ -111,7 +111,6 @@ tbody tr td:hover {
     padding: 20px;
     margin-top: 20px;
     text-align: center;
-    height: 250px;
 }
 
 .numberShowcaseText {
@@ -126,7 +125,6 @@ tbody tr td:hover {
     background: rgba(100, 148, 237, 0.292);
     padding: 20px;
     text-align: center;
-    height: 250px;
 }
 
 .numberShowcaseText-2 {
@@ -218,4 +216,8 @@ option {
     color: black!important;
     text-transform: capitalize;
     padding: 10px!important;
+}
+
+footer {
+    background-color: cornflowerblue!important;
 }

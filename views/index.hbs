@@ -37,33 +37,6 @@
      </div>
 </div>
 
-<div class="container">
-     <div class="row" style="margin-top: 100px; margin-bottom: 100px;">
-     <div data-aos="fade-up">
-          <div class="col s12 l6">
-               <div class="numberShowcase  z-depth-1">
-                    <div class="numberShowcaseText">
-                         {{PostLength}} <div>
-                              technical topics to explore
-                         </div>
-                    </div>
-               </div>
-          </div>
-     </div>
-
-     <div data-aos="fade-up">
-          <div class="col s12 l6">
-               <div class="numberShowcase-2  z-depth-1">
-                    <div class="numberShowcaseText-2">
-                         {{categoryLength}} <div>
-                              categories to relate
-                         </div>
-                    </div>
-               </div>
-          </div>
-     </div>
-</div>
-</div>
 
 {{#if PostLength}}
 <div class="row grey lighten-2" style="margin-top: 50px; padding-top: 20px; padding-bottom: 50px!important">
@@ -102,17 +75,97 @@
 </div>
 {{/if}}
 
-{{!-- Subscriber area --}}
-<div data-aos="fade-up">
-     <div class="light-blue lighten-3" style="padding: 20px;">
-          <h3 class="center white-text">
-               Want to contact me!
-          </h3>
+<div class="container">
+     <div class="row" style="margin-top: 100px; margin-bottom: 100px;">
+     <div data-aos="fade-up">
+          <div class="col s6">
+               <div class="numberShowcase  z-depth-1">
+                    <div class="numberShowcaseText">
+                         {{PostLength}}
+                    </div>
+                    <div>
+                         Technical topics explored
+                    </div>
+               </div>
+          </div>
+     </div>
 
+     <div data-aos="fade-up">
+          <div class="col s6">
+               <div class="numberShowcase-2  z-depth-1">
+                    <div class="numberShowcaseText-2">
+                         {{categoryLength}}
+                    </div>
+                    <div>
+                         Categories to relate
+                    </div>
+               </div>
+          </div>
      </div>
 </div>
-{{!-- Subscriber area ends --}}
+</div>
 
+{{!-- contact area --}}
+<div data-aos="fade-up">
+     <div style="padding: 20px; background-color: cornflowerblue;">
+          <h3 class="center">
+               Want to contact me?
+          </h3>
+          <div class="container" style="margin-top: 50px;">
+               <div class="row">
+                    <div class="col s12 l6">
+                         <h5>Than submit this form...</h5>
+                    </div>
+                    <div class="col s12 l6">
+                         <div class="row">
+                              <form class="col s12" action="/contact-form"  method="POST">
+                                   <div class="row">
+                                        <div class="input-field col s12 l6">
+                                             <input name="email" id="first_name" type="text" class="validate" required>
+                                             <label for="first_name">Email <span class="red-text">
+                                                  *
+                                             </span></label>
+                                        </div>
+                                          <div class="input-field col s12 l6">
+                                             <input name="number" id="number" type="number">
+                                             <label for="number">
+                                                  Contact Number <sup>(optional)</sup>
+                                             </label>
+                                        </div>
+                                   </div>
+                                   <div class="row">
+                                        <div class="input-field col s12">
+                                             <textarea id="textarea1" name="message" class="materialize-textarea"></textarea>
+                                             <label for="textarea1">
+                                                       Your message(optional)
+                                             </label>
+                                        </div>
+                                   </div>
+                                   <div class="input-field">
+                                        <button type="submit" class="btn col s6 offset-s6 black">
+                                             send message
+                                        </button>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
 
+<div class="divider"></div>
+
+{{!-- contact area ends --}}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{{#if messages}}
+<script type="text/javascript">
+     swal("Thank you", "{{messages}}", "success",{
+          button: 'close'
+     }) ;
+</script>
+{{/if}}
 
 <a id="back2Top" title="Back to top" href="#"><i class="material-icons" style="font-size: 30px;">keyboard_arrow_up</i></a>

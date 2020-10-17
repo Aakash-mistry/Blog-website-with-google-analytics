@@ -18,10 +18,10 @@
                <div class="row">
                     {{#if categoriesLength}}
                     <div class="col s12 l6">
-                          <select name="category" class="browser-default">
+                         <select name="category" class="browser-default">
                               <option value="" disabled selected>Select category</option>
-                               {{#each categories}}
-                              <option value="{{this._id}}">{{this.title}}</option>
+                              {{#each categories}}
+                                   <option value="{{this._id}}">{{this.title}}</option>
                               {{/each}}
                          </select>
                          <label>Select blog category</label>

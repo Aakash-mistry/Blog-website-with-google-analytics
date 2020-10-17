@@ -4,11 +4,17 @@ const subscriberSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        lowercase: true
+        lowercase: true,
+        trim: true
+    },
+    contact: {
+        type: Number,
+        trim: true
     },
     message: {
         type: String,
-        lowercase: true
+        lowercase: true,
+        trim: true
     }
 })
 

@@ -1,7 +1,9 @@
 const Category = require('../models/category')
 const Blog = require('../models/post')
+const Contact = require('../models/contact')
 
 exports.hompage = async(req, res) => {
+    const messages = req.flash('success')
     const category = await Category.find().sort({ createdAt: -1 })
     const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(1).populate('category', 'title')
     const allPost = await Blog.find().sort({ createdAt: -1 }).limit(12).populate('category', 'title')
@@ -11,7 +13,8 @@ exports.hompage = async(req, res) => {
         category,
         latestBlog,
         PostLength: allPost.length,
-        allPost
+        allPost,
+        messages: messages
     })
 }
 
@@ -44,7 +47,7 @@ exports.searchPosts = async(req, res) => {
     var search = req.body.search
     console.log(search)
     const category = await Category.find().sort({ createdAt: -1 })
-    await Blog.find({ $or: [{ postTitle: new RegExp(search) }] }, (err, data) => {
+    await Blog.find({ $or: [{ postTitle: new RegExp(search.toLowerCase()) }] }, (err, data) => {
         if (err) {
             res.json(err)
         } else {
@@ -56,4 +59,20 @@ exports.searchPosts = async(req, res) => {
             })
         }
     }).populate("category", "title")
+}
+
+exports.contactForm = async(req, res) => {
+    const details = new Contact({
+        email: req.body.email,
+        contact: req.body.number,
+        message: req.body.message
+    })
+    details.save((err, data) => {
+        if (err) {
+            res.json(err)
+        } else {
+            req.flash('success', 'Got your message!!!')
+            res.redirect('/')
+        }
+    })
 }

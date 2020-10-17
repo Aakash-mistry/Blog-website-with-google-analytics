@@ -60,3 +60,14 @@ exports.notLoggedIn = (req, res, next) => {
     }
     res.redirect('/')
 }
+
+exports.viewAccountDetails = (req, res) => {
+    if (req.user) {
+        res.render('admin/dashboard/account', {
+            title: 'sachintechtalks | ' + req.user.name,
+            user: req.user
+        })
+    } else {
+        res.redirect('/')
+    }
+}

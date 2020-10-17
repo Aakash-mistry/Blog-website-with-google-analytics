@@ -1,4 +1,4 @@
-const { loginForm, passportLogin, dashboard, logout, isLoggedIn, notLoggedIn, viewBlogsToAdmin, deleteBlog } = require('../controllers/adminController')
+const { loginForm, passportLogin, dashboard, logout, isLoggedIn, notLoggedIn, viewBlogsToAdmin, viewAccountDetails } = require('../controllers/adminController')
 const { createCategoryForm, createCategory, viewAllCategory, editCategoryForm, editCategory, deleteCategory } = require('../controllers/categoryController')
 const { createPostForm, createNewBlog, deleteOneBlog } = require('../controllers/postController')
 const router = require('express').Router()
@@ -17,13 +17,18 @@ router.get('/edit-category/:id', isLoggedIn, editCategoryForm)
 // BLOGS
 router.get('/create-blog', isLoggedIn, createPostForm)
 
+// ADMIN ACCOUNT
+router.get('/account-settings', isLoggedIn, viewAccountDetails)
+
 // POST routes
 router.post('/', passportLogin)
-    // CATEGORIES
+
+// CATEGORIES
 router.post('/create-category', isLoggedIn, createCategory)
 router.post('/edit-category/:id', isLoggedIn, editCategory)
 router.post('/delete-category/:id', isLoggedIn, deleteCategory)
-    // BLOGS
+
+// BLOGS
 router.post('/create-new-blog', isLoggedIn, createNewBlog)
 router.post('/delete-blog/:blogId', isLoggedIn, deleteOneBlog)
 
