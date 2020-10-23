@@ -32,9 +32,9 @@ exports.viewSingleBlogPost = async(req, res) => {
 exports.viewPostsByCategory = async(req, res) => {
     const category = await Category.find().sort({ createdAt: -1 })
     const selectedCategory = await Category.findOne({ _id: req.params.id })
-    const posts = await Blog.find({ category: req.params.id }).sort({ _createAt: -1 })
+    const posts = await Blog.find({ category: req.params.id }).sort({ _createAt: -1 }).populate('category')
     res.render('category/posts', {
-        title: 'sachintechtalks | ',
+        title: 'sachintechtalks | '+ selectedCategory.title,
         selectedCategory,
         postLength: posts.length,
         posts,

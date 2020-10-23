@@ -11,6 +11,19 @@ exports.createPostForm = async(req, res) => {
     })
 }
 
+exports.editBlog = async(req,res)=>{
+    const messages = req.flash('success')
+     const blog = await Blog.findOne({_id: req.params.id}).populate('category')
+     const category = await Category.find({})
+     res.render('blog/edit-blog', {
+          title: 'sachintechtalks | ' + blog.postTitle,
+          blog,
+          categoryLength: category.length,
+          category,
+          messages: messages
+     })
+}
+
 // backend of blogs
 exports.createNewBlog = async(req, res) => {
     const formData = new Blog({
@@ -34,4 +47,15 @@ exports.createNewBlog = async(req, res) => {
 exports.deleteOneBlog = async(req, res) => {
     await Blog.findOneAndDelete({ _id: req.params.blogId })
     res.redirect('/admin/view-blog-admin')
+}
+
+exports.changeDetails = async (req,res)=>{
+     await Blog.findOneAndUpdate({_id: req.params.blogId}, {$set:{postTitle: req.body.title, shortDescription: req.body.sDescription, category: req.body.category, mainDescription: req.body.mDescription}}, (err, data) => {
+          if(err){
+               console.log(err)
+          }else{
+               req.flash("success", "Details has been changed!!!")
+               res.redirect('/admin/view-blog-admin')
+          }
+     })
 }

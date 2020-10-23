@@ -33,13 +33,13 @@ body {
 
 .navlinks {
     text-transform: uppercase;
-    font-weight: 14px;
     color: black;
     transition: 500ms;
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .navlinks:hover {
-    color: white;
     background: none;
 }
 
@@ -206,6 +206,7 @@ tbody tr td {
 
 .dashboard-icons {
     font-size: 50px;
+    font-weight: 700;
 }
 
 option {

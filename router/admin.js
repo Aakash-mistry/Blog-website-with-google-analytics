@@ -1,13 +1,12 @@
 const { loginForm, passportLogin, dashboard, logout, isLoggedIn, notLoggedIn, viewBlogsToAdmin, viewAccountDetails, getAllMessages, deleteOneMessage } = require('../controllers/adminController')
 const { createCategoryForm, createCategory, viewAllCategory, editCategoryForm, editCategory, deleteCategory } = require('../controllers/categoryController')
-const { createPostForm, createNewBlog, deleteOneBlog } = require('../controllers/postController')
+const { createPostForm, createNewBlog, deleteOneBlog, editBlog, changeDetails } = require('../controllers/postController')
 const router = require('express').Router()
 
 // GET
 router.get('/', loginForm)
 router.get('/dashboard', isLoggedIn, dashboard)
 router.get('/logout', isLoggedIn, logout)
-router.get('/view-blog-admin', isLoggedIn, viewBlogsToAdmin)
 
 // CATEGORIES
 router.get('/create-category', isLoggedIn, createCategoryForm)
@@ -16,6 +15,8 @@ router.get('/edit-category/:id', isLoggedIn, editCategoryForm)
 
 // BLOGS
 router.get('/create-blog', isLoggedIn, createPostForm)
+router.get('/view-blog-admin', isLoggedIn, viewBlogsToAdmin)
+router.get('/edit-blog-post/:id', isLoggedIn, editBlog)
 
 // MESSAGES
 router.get('/new-messages', isLoggedIn, getAllMessages)
@@ -35,5 +36,6 @@ router.post('/delete-category/:id', isLoggedIn, deleteCategory)
 // BLOGS
 router.post('/create-new-blog', isLoggedIn, createNewBlog)
 router.post('/delete-blog/:blogId', isLoggedIn, deleteOneBlog)
+router.post('/edit-blog-admin/:blogId', isLoggedIn, changeDetails)
 
 module.exports = router

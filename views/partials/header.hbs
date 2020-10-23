@@ -23,7 +23,7 @@
                     <a href="#email"><span class="white-text email">{{user.email}}</span></a>
                </div>
           </li>
-          <li><a href="/admin/dashboard" class="navlinks-of-mobile"><i class="material-icons">home</i> dashboard</a></li>
+          <li><a href="/admin/dashboard" class="navlinks-of-mobile"><i class="material-icons blue-text">home</i> dashboard</a></li>
           <li><a class="subheader">Manage posts</a></li>
           <ul class="collapsible">
                {{!-- category --}}
@@ -42,7 +42,7 @@
                               <li>
                                    <span>
                                         <a href="/admin/view-category" class="navlinks-of-mobile">
-                                             view all category
+                                             view / manage all category
                                         </a>
                                    </span>
                               </li>
@@ -64,7 +64,7 @@
                                    <li>
                                         <span>
                                              <a href="/admin/view-blog-admin" class="navlinks-of-mobile">
-                                             view all blogs
+                                             view / manage all blogs
                                              </a>
                                         </span>
                                    </li>
@@ -86,7 +86,7 @@
                               <li>
                                    <span>
                                         <a href="#view-blog" class="navlinks-of-mobile">
-                                             view affilate links
+                                             view / manage affilate links
                                         </a>
                                    </span>
                               </li>
@@ -96,7 +96,7 @@
                {{!-- pages --}}
                <li><a class="subheader">Manage Pages</a></li>
                <li>
-                    <a href="#admin/about-settings" class="navlinks-of-mobile">
+                    <a href="/admin/new-messages" class="navlinks-of-mobile">
                          <i class="left material-icons blue-text">messages</i>
                          View messages
                     </a>
@@ -132,19 +132,16 @@
 </ul>
 
 {{else}}
-{{!-- <div class="logo-navigation center">
+<div class="logo-navigation center">
     <div data-aos="fade-down">
           <a class="brand-logo">
                sachintechtalks
           </a>
     </div>
-</div> --}}
-<div class="navbar-fixed">
+</div>
+<div>
      <nav class="category-nav">
      <div class="nav-wrapper">
-          <div class="brand-logo right">
-               sachintechtalks
-          </div>
           <ul class="left">
                <li>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -173,12 +170,13 @@
 
 <ul class="sidenav" id="mobile-demo">
      <li><a href="/" class="navlinks">home</a></li>
-     <li><a class="subheader">category</a></li>
+     <li><a class="subheader">categories</a></li>
           {{#if categoryLength}}
           {{#each category}}
                <li><a href="#" class="navlinks">{{this.title}}</a></li>
           {{/each}}
      {{/if}}
+     <li><a class="subheader">Other links</a></li>
      <li><a href="#" class="navlinks">About us</a></li>
      <li><a href="#" class="navlinks">Contact us</a></li>
 

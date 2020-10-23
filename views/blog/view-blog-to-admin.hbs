@@ -25,7 +25,7 @@
                     <div style="margin-top: 10px;">
                          <div class="row" style="margin-bottom: 0px!important;">
                               <div class="col s6 center">
-                                   <a href="/admin/edit-blog-post" class="btn green">
+                                   <a href="/admin/edit-blog-post/{{this._id}}" class="btn green">
                                         <i class="material-icons">edit</i>
                                    </a>
                               </div>
@@ -42,17 +42,29 @@
           </div>
      {{/each}}
           <div class="col s12 l3" style="padding: 10px;border: 2px dashed grey; margin-top: 50px; height: 400px;">
+                    <a href="/admin/create-blog">
                <div style="
                     margin-top: 100px;
                     text-align: center;
                ">
+                    <h6 class="black-text">Click here to</h6>
                     <h3 class="grey-text">Create new blog</h3>
-                    <a href="/admin/create-blog" class="btn grey">
-                         Click here to create new blog
-                    </a>
                </div>
+                    </a>
           </div>
 </div>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{{#if messages}}
+<script type="text/javascript">
+    swal("Good job!", "{{messages}}", "success",{
+          button: 'CLOSE'
+     });
+</script>
+{{/if}}
+
 {{else}}
 <div style="margin-top: 50px;" class="heading">
      NO blogs is uploaded by you...

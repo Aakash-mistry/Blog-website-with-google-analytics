@@ -1,7 +1,7 @@
 {{#if dataLength}}
      <div class="row">
           {{#each data}}
-          <div class="col s12 l4" style="margin-top: 50px;">
+          <div class="col s12 l3" style="margin-top: 50px;">
                <div class="white post hoverable">
                     <a href="/blog/{{this._id}}" class="waves-effect waves-light">
                     <img src="{{this.postImage}}" class="responsive-img  waves-effect waves-light" alt="">
@@ -27,7 +27,7 @@
           {{/each}}
      </div>
      {{else}}
-     <div style=" text-align: center; margin-top: 100px;">
+     <div style=" text-align: center; margin-top: 100px; margin-bottom: 50px;">
           <img src="/images/svg/question.svg" class="responsive-img" width="350" alt="">
           <div class="heading" style="margin-top: 50px;">
               Hmm!!! What are you looking for that's not found!!!

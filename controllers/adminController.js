@@ -35,12 +35,14 @@ exports.logout = (req, res) => {
 }
 
 exports.viewBlogsToAdmin = async(req, res) => {
+    const messages = req.flash('success')
     const posts = await Blog.find().sort({ createdAt: -1 }).populate("category title")
     res.render('blog/view-blog-to-admin', {
         title: 'sachintechtalks | you have uplaoded this blog',
         postLength: posts.length,
         posts,
-        user: req.user
+        user: req.user,
+        messages: messages
     })
 }
 
@@ -81,7 +83,8 @@ exports.getAllMessages = async(req, res) => {
     res.render('admin/dashboard/contact', {
         title: 'sachintechtalks | new messages',
         messagesLength: messages.length,
-        messages: messages
+        messages: messages,
+        user: req.user
     })
 }
 

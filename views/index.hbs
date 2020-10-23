@@ -1,17 +1,17 @@
 <div class="row">
      <div data-aos="fade-up">
-          <div class="col s12 l8">
+          <div class="col s12 l8   ">
                <div style="margin-top: 50px;">
                     {{#if latestBlog}}
                          <div class="center heading-2">
                               My latest technical post
                          </div>
-                         <div class="row z-depth-1" style="padding: 10px;">
+                         <div class="row z-depth-1" style="padding: 5px;">
                               {{#each latestBlog}}
-                                   <div class="col s12 l6">
-                                        <img src="{{this.postImage}}" class='responsive-img' alt="">
+                                   <div class="col s12 l5 center-align" style="margin-top: 5px;">
+                                        <img src="{{this.postImage}}" class='responsive-img' width="400" alt="">
                                    </div>
-                                   <div class="col s12 l6">
+                                   <div class="col s12 l7">
                                         <div class="heading truncate" style="margin-top: 20px;">
                                              <a href="/blog/{{this._id}}">
                                                   {{this.postTitle}}
@@ -64,8 +64,8 @@
                          Blog category - {{this.category.title}}
                     </div>
                     <div style="margin-top: 20px; text-align: right;">
-                         <a href="/blog/{{this._id}}" class="btn black">
-                              Read more...
+                         <a href="/blog/{{this._id}}" class="btn black waves-effect waves-light">
+                              <i class="material-icons">arrow_forward</i>
                          </a>
                     </div>
                </div>
