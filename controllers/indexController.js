@@ -6,7 +6,7 @@ exports.hompage = async(req, res) => {
     const messages = req.flash('success')
     const category = await Category.find().sort({ createdAt: -1 })
     const latestBlog = await Blog.find().sort({ createdAt: -1 }).limit(1).populate('category', 'title')
-    const allPost = await Blog.find().sort({ createdAt: -1 }).limit(12).populate('category', 'title')
+    const allPost = await Blog.find().sort({ createdAt: -1 }).limit(10).populate('category', 'title')
     res.render('index', {
         title: 'sachintechtaks | homepage',
         categoryLength: category.length,
@@ -75,4 +75,22 @@ exports.contactForm = async(req, res) => {
             res.redirect('/')
         }
     })
+}
+
+exports.aboutPage = async(req,res)=>{
+     const category = await Category.find().sort({ createdAt: -1 })
+     res.render('other/about.hbs', {
+          title: 'sachintechtalks | about us',
+          categoryLength: category.length,
+          category
+     })
+}
+
+exports.contactUs = async(req,res)=>{
+     const category = await Category.find().sort({ createdAt: -1 })
+     res.render('other/contact.hbs', {
+          title: 'sachintechtalks | about us',
+          categoryLength: category.length,
+          category
+     })
 }

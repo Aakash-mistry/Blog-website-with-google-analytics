@@ -47,26 +47,26 @@
      </div>
      <div data-aos="fade-up">
           {{#each allPost}}
-          <div class="col s12 l3" style="margin-top: 50px;">
-               <div class="white post hoverable">
-                    <a href="/blog/{{this._id}}" class="waves-effect waves-light">
-                    <img src="{{this.postImage}}" class="responsive-img  waves-effect waves-light" alt="">
-                    </a>
-                    <div class="blog-title truncate" style="margin-top: 10px;">
-                         <a href="/blog/{{this._id}}">
-                              {{this.postTitle}}
-                         </a>
+               <div class="col s12 l6" style="margin-top: 50px;"  data-aos="fade-up">
+               <div class="row">
+                    <div class="col s12 l6">
+                         <img src="{{this.postImage}}" class="responsive-img" alt="">
                     </div>
-                    <div class="short-title" style="margin-top: 10px;">
-                         {{this.shortDescription}}
-                    </div>
-                    <div style="text-transform: capitalize; margin-top: 10px;">
-                         Blog category - {{this.category.title}}
-                    </div>
-                    <div style="margin-top: 20px; text-align: right;">
-                         <a href="/blog/{{this._id}}" class="btn black waves-effect waves-light">
-                              <i class="material-icons">arrow_forward</i>
-                         </a>
+                    <div class="col s12 l6">
+                         <div class="blog-title">
+                              <a href="/blog/{{this._id}}" class="black-text">
+                                   {{this.postTitle}}
+                              </a>
+                         </div>
+                         <div class="short-title truncate">
+                              {{this.shortDescription}}
+                         </div>
+                         <div class="category grey-text text-darken-2">
+                              category - {{this.category.title}}
+                         </div>
+                         <div class="read-more right" style="margin-top: 20px;">
+                              <a href="/blog/{{this._id}}" class="btn black"><i class="material-icons">keyboard_tab</i></a>
+                         </div>
                     </div>
                </div>
           </div>

@@ -100,6 +100,12 @@ tbody tr td {
 
 .short-title {
     color: gray;
+    margin-top: 10px;
+}
+
+.category {
+    font-weight: 700;
+    margin-top: 10px;
 }
 
 .numberShowcase {
@@ -217,4 +223,117 @@ option {
 
 footer {
     background-color: cornflowerblue!important;
+}
+
+.about-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: white;
+    background: #333;
+    margin-bottom: 50px;
+}
+
+.about-us-section-title {
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.about-container-2 {
+    padding: 30px;
+    color: black;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.sami-text {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.about-paragraph {
+    font-size: 20px;
+}
+
+.icons {
+    font-size: 50px;
+    background: white;
+    margin: 10px;
+    padding: 30px!important;
+    text-align: center;
+}
+
+.innerBox {
+    padding: 20px!important;
+    margin-top: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+.about-category-title {
+    text-transform: capitalize;
+}
+
+.contact-container {
+    height: 50vh;
+    margin-top: 0px!important;
+    padding: 20px;
+}
+
+.contact-title {
+    text-transform: uppercase;
+    font-weight: 1000!important;
+    margin-top: 150px;
+}
+
+.contact-us-main-section {
+    margin-top: 100px;
+    box-shadow: 5px 5px 15px 0.5px #6c9dff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.heading-3 {
+    font-size: 40px;
+    font-weight: 700;
+    color: grey;
+    margin-top: 50px;
+}
+
+.contact-paragraph {
+    color: grey;
+    font-weight: 600;
+}
+
+.facebook-btn {
+    color: #3b5998;
+    background: transparent;
+}
+
+.instagram-btn {
+    color: #3f729b;
+    background: transparent;
+}
+
+.twitter-btn {
+    color: #00acee;
+    background: transparent;
+}
+
+.youtube-btn {
+    color: #FF0000;
+    background: transparent;
+}
+
+.icons-social {
+    font-size: 20px!important
+}
+
+.contact-us-form {
+    background: white;
+    padding: 20px!important;
+    margin-bottom: 0px!important;
+    border-radius: 10px;
 }
